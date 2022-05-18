@@ -1,0 +1,7 @@
+<launch>	
+	<include file="$(find racecar_simulator)/launch/simulate.launch"/>
+	<include file="$(find wall_follower)/launch/wall_follower.launch"/>
+	
+	<node name="rviz" pkg="rviz" type="rviz" />
+
+</launch>

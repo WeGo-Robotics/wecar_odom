@@ -1,0 +1,12 @@
+<launch>
+	<include file="$(find racecar_gazebo)/launch/racecar.launch"/>
+	
+	<include file="$(find ta_lab5)/launch/map_server.launch"/>
+
+	<include file="$(find ta_lab6)/launch/follow_trajectory.launch"/>
+
+	<include file="$(find ta_lab6)/launch/waypoint_control.launch"/>
+
+	<node name="rviz" pkg="rviz" type="rviz" />
+
+</launch>

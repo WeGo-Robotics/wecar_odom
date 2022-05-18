@@ -1,0 +1,6 @@
+<launch>	
+	<include file="$(find racecar)/launch/teleop.launch"/>
+	<include file="$(find obstacle_detector)/launch/nodes.launch"/>
+	<include file="$(find obstacle_e_stop)/launch/obstacle_e_stop.launch"/>
+	<node name="line_detect" pkg="lane_detection" type="line_detect_ros_warning.py" output="screen"/>
+</launch>

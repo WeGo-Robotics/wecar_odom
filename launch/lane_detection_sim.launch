@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+
+   	<!--include file="$(find usb_cam)/launch/usb_cam-test.launch"></include--> 
+   	<node name="image_transport" pkg="image_transport" type="republish" args="compressed in:=/image_jpeg raw out:=/usb_cam/image_raw" />
+
+	<node name="wecar" pkg="lane_detection" type="recognition_sim.py" output="screen">
+		<!-- HSV Parameters -->		
+		<param name="h_max" value="40" type="int"/>
+		<param name="h_min" value="0" type="int"/>
+		<param name="s_max" value="30" type="int"/>
+		<param name="s_min" value="0" type="int"/>
+		<param name="v_max" value="255" type="int"/>
+		<param name="v_min" value="220" type="int"/>
+		<!-- Hough Transform Parameters -->
+		<param name="/hough/rho" value="1" type="double"/>	
+		<param name="/hough/theta" value="180" type="int"/>
+		<param name="/hough/threshold" value="15" type="int"/>
+		<param name="/hough/minLineLength" value="8" type="int"/>
+		<param name="/hough/maxLineGap" value="5" type="int"/>
+	</node>
+
+   	<node name="control_wecar" pkg="lane_detection" type="control_wecar.py" output="screen">
+	</node>
+</launch>
